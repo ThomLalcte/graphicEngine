@@ -6,23 +6,35 @@ int CALLBACK WinMain(
 	LPSTR		lpCmdLine,
 	int			nCmdShow) 
 {
-	Window wnd(800, 300, "Donkey Fart Box");
-
-
-	//message pump
-	MSG msg = {0};
-	BOOL gResult;
-	while ((gResult = GetMessageA(&msg,nullptr,0,0))>0)
+	try
 	{
-		TranslateMessage(&msg);
-		DispatchMessageW(&msg);
-	}
+		Window wnd(800, 300, "Donkey Fart Box");
 
-	if (gResult == -1) {
-		return -1;
-	}
-	else
-	{
+
+		//message pump
+		MSG msg = { 0 };
+		BOOL gResult;
+		while ((gResult = GetMessageA(&msg, nullptr, 0, 0)) > 0)
+		{
+			TranslateMessage(&msg);
+			DispatchMessageW(&msg);
+		}
+
+		if (gResult == -1) {
+			return -1;
+		}
+
+		//wParam here is the value passed to PostQuitMessage
 		return msg.wParam;
 	}
+	catch (const ChiliException& e) {
+		MessageBoxA(nullptr, e.what(), e.GetType(), MB_OK | MB_ICONEXCLAMATION);
+	}
+	catch (const std::exception& e) {
+		MessageBoxA(nullptr, e.what(), "Standard Library Exception", MB_OK | MB_ICONEXCLAMATION);
+	}
+	catch (...) {
+		MessageBoxA(nullptr, "I donno mate", "Unknown Exeption type thrown");
+	}
+	return -1;
 }
