@@ -159,7 +159,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ChiliException.cpp" />
+    <ClCompile Include="Window.cpp" />
     <ClCompile Include="Winmain.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ChiliException.h" />
+    <ClInclude Include="ChiliWin.h" />
+    <ClInclude Include="Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
