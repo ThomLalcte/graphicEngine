@@ -75,6 +75,7 @@ Window::Window(int width, int height, const char* name)
 	wr.top = 100;
 	wr.bottom = height + wr.top;
 	AdjustWindowRect(&wr, WS_CAPTION | WS_MINIMIZEBOX | WS_SYSMENU, FALSE);
+
 	// create window & get hWnd
 	hWnd = CreateWindowA(
 		WindowClass::GetNameA(), name,

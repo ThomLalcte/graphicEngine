@@ -34,7 +34,7 @@ int CALLBACK WinMain(
 		MessageBoxA(nullptr, e.what(), "Standard Library Exception", MB_OK | MB_ICONEXCLAMATION);
 	}
 	catch (...) {
-		MessageBoxA(nullptr, "I donno mate", "Unknown Exeption type thrown");
+		MessageBoxA(nullptr, "I donno mate", "Unknown Exeption type thrown", MB_OK | MB_ICONEXCLAMATION);
 	}
 	return -1;
 }
