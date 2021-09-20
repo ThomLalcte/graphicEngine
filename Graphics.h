@@ -27,7 +27,7 @@ public:
 		HRESULT hr;
 		std::string info;
 	};
-	/*class InfoException : public Exception
+	class InfoException : public Exception
 	{
 	public:
 		InfoException(int line, const char* file, std::vector<std::string> infoMsgs) noexcept;
@@ -36,7 +36,7 @@ public:
 		std::string GetErrorInfo() const noexcept;
 	private:
 		std::string info;
-	};*/
+	};
 	class DeviceRemovedException : public HrException
 	{
 		using HrException::HrException;
@@ -51,10 +51,8 @@ public:
 	Graphics& operator=(const Graphics&) = delete;
 	~Graphics() = default;
 	void EndFrame();
-	void clearBuffer(float red, float green, float blue) noexcept {
-		const float color[] = { red,green,blue,1.0f };
-		pContext->ClearRenderTargetView(pTarget.Get(), color);
-	}
+	void clearBuffer(float red, float green, float blue) noexcept;
+	void DrawTestTriangle();
 private:
 #ifndef NDEBUG
 	DxgiInfoManager infoManager;
