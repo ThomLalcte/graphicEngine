@@ -176,9 +176,9 @@ void Graphics::DrawTestTriangle(float angle) {
 	{
 		{
 			(3.0/8.0)*std::cos(angle),	(3.0 / 8.0)*std::sin(angle),	0.0, 0.0,
-			-std::sin(angle),		std::cos(angle),					0.0, 0.0,
-			0.0,					0.0,								1.0, 0.0,
-			0.0,					0.0,								0.0, 1.0,
+			-std::sin(angle),			std::cos(angle),				0.0, 0.0,
+			0.0,							0.0,							1.0, 0.0,
+			0.0,							0.0,							0.0, 1.0,
 		}
 	};
 	wrl::ComPtr<ID3D11Buffer> pConstantBuffer;
@@ -194,7 +194,7 @@ void Graphics::DrawTestTriangle(float angle) {
 	GFX_THROW_INFO(pDevice->CreateBuffer(&cbd, &csd, &pConstantBuffer));
 
 	//bind constant buffer to vertex shader
-	pContext->VSSetConstantBuffers(0, 1, pConstantBuffer.GetAddressOf());
+	pContext->VSSetConstantBuffers(0u, 1u, pConstantBuffer.GetAddressOf());
 
 	//create pixel shader
 	wrl::ComPtr<ID3DBlob> pBlob;
